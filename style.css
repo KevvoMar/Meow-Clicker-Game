@@ -1,0 +1,200 @@
+body {
+    background-image: url(https://image.api.playstation.com/vulcan/ap/rnd/202502/2613/71bde410a228ade9fc3a2bcc48439774e248803362a89c21.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+button {
+    border: solid 3px rgb(0, 0, 0);
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: 200ms ease;
+}
+
+button:active {
+    opacity: 80%;
+    transform: translateY(2px);
+}
+
+.header__row {
+    display: flex;
+    justify-content: start;
+    gap: 20%;
+    flex-wrap: wrap;
+    align-items: start;
+    padding: 0 8px;
+}
+
+.header__col {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.currency {
+    color: rgb(117, 68, 253);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpDLjWidF5GxbdTXAA7EhGh64P4cw0HMIQTA&s);
+    background-size: 200%;
+    background-position-x: 40%;
+    background-position-y: 60%;
+    border-radius: 10px;
+    padding: 4px 20px;
+    font-weight: 900;
+    font-size: 60px;
+    box-shadow: 5px 5px 5px 5px rgb(110, 167, 241);
+}
+
+.currency__second {
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(55, 1, 105);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clicker__img--wrapper {
+    padding: 2rem;
+    
+}
+
+.clicker__img {
+  transition: transform 0.15s ease;
+  width: 150%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: none;
+  display: flex;
+  justify-self: center;
+  cursor: pointer;
+}
+
+/* floating +1 */
+.floating {
+    position: absolute;
+    font-size: 40px;
+    font-weight: 900;
+    color: rgb(187, 103, 255);
+    animation: floatUp 1s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
+}
+
+
+
+
+.bottom__bar {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+}
+
+.shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    height: 97.9vh;
+    border: 10px solid rgb(22, 63, 150);
+    background-color: #220635;
+}
+
+.shop__title {
+    font-size: 50px;
+    border: solid 4px rgb(43, 43, 43);
+    border-radius: 10px;
+    padding: 4px 100px;
+    background-image: linear-gradient(to right, rgb(222, 145, 252), rgb(76, 168, 221));
+    color: #220635;
+}
+
+.btn__spacing {
+    padding: 12px;
+}
+
+/* warning pop up */
+
+.warning {
+    background-color: black;
+    border-radius: 10px;
+    padding: 4px 12px;
+    position: absolute;
+    top: 20px;
+    left: 20%;
+    transform: translateX(-50%);
+    transform: translateY(0%);
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+.upgrade {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(220, 143, 255);
+    border-radius: 9999px;
+    padding: 4px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.upgrade__cost {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.upgrade {
+    transform: translateY(10px);
+    transition: ease 50ms;
+}
+
+/* Cheatsmenu */
+
+.cheats {
+    margin-top: 5rem;
+}
+
+.user__input {
+    border-radius: 9999px;
+    padding: 12px 30px;
+    font-size: 30px;
+}
+
+.cheat__enter-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cheat__enter-btn {
+    font-size: 30px;
+    font-weight: 600;
+    padding: 16px 30px;
+    border-radius: 9999px;
+    background-color: rgb(174, 0, 255);
+    color: white;
+    box-shadow: 5px 5px 5px rgb(211, 134, 255);
+    cursor: pointer;
+}
+
+.btn__container {
+    padding-top: 1rem;
+}
+
+
