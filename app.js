@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 let meows = 0;
 let meowsPerClick = 1;
 let meowsPerSecond = 0;
@@ -257,5 +259,6 @@ document.querySelector(".cheat__enter-btn").addEventListener("click", clearInput
 catImg.addEventListener("click", handleCatClick);
 
 loadGame();
-setInterval(saveGame, 1000);
+    setInterval(saveGame, 1000);
+});
 
