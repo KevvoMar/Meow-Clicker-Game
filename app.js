@@ -28,6 +28,7 @@ function updateCurrency() {
     currency.textContent = "Meows: " + meows;
     currencyPerSecond.textContent = "Meows Per Second: " + meowsPerSecond;
     updateShopUI();
+    saveGame();
 }
 
 //upgrades
@@ -38,6 +39,7 @@ document.querySelector(".upgrade__one").addEventListener("click", () => {
         meowsPerClick++;
         upgradeOneCost = Math.floor(upgradeOneCost * 1.2);
         updateCurrency();
+        saveGame();
     }
     else {
         const warning = document.createElement("p");
@@ -56,6 +58,7 @@ document.querySelector(".upgrade__two").addEventListener("click", () => {
         meowsPerSecond++;
         upgradeTwoCost = Math.floor(upgradeTwoCost * 1.4);
         updateCurrency();
+        saveGame();
     }
     else {
         const warning = document.createElement("p");
@@ -74,6 +77,7 @@ document.querySelector(".upgrade__three").addEventListener("click", () => {
         meowsPerClick += 2;
         upgradeThreeCost = Math.floor(upgradeThreeCost * 1.5);
         updateCurrency();
+        saveGame();
     }
     else {
         const warning = document.createElement("p");
@@ -92,6 +96,7 @@ document.querySelector(".upgrade__four").addEventListener("click", () => {
         meowsPerSecond += 2;
         upgradeFourCost = Math.floor(upgradeFourCost * 1.5);
         updateCurrency();
+        saveGame();
     }
     else {
         const warning = document.createElement("p");
@@ -110,6 +115,7 @@ document.querySelector(".upgrade__five").addEventListener("click", () => {
         meowsPerClick += 5;
         upgradeFiveCost = Math.floor(upgradeFiveCost * 1.3);
         updateCurrency();
+        saveGame();
     }
     else {
         const warning = document.createElement("p");
@@ -128,6 +134,7 @@ document.querySelector(".upgrade__six").addEventListener("click", () => {
         meowsPerSecond += 10;
         upgradeSixCost = Math.floor(upgradeSixCost * 1.4);
         updateCurrency();
+        saveGame();
     }
     else {
         const warning = document.createElement("p");
@@ -181,8 +188,8 @@ function handleCatClick(e) {
     setTimeout(() => {
         catImg.style.transform = `rotate(0deg)`;
     }, 100);
+    saveGame();
 }
-//
 
 
  //cheat code
@@ -204,8 +211,51 @@ function cheatCode() {
 function clearInput() {
     document.querySelector(".user__input").value = "";
 }
-//
+
+
+// SAVE FEATURE
+
+
+function saveGame() {
+    const gameState = {
+        meows,
+        meowsPerClick,
+        meowsPerSecond,
+        upgradeOneCost,
+        upgradeTwoCost,
+        upgradeThreeCost,
+        upgradeFourCost,
+        upgradeFiveCost,
+        upgradeSixCost
+    };
+
+    localStorage.setItem("meowClickerSave", JSON.stringify(gameState));
+}
+
+// LOAD
+
+function loadGame() {
+    const saved = JSON.parse(localStorage.getItem("meowClickerSave"));
+    if (!saved) return;
+
+    meows = saved.meows;
+    meowsPerClick = saved.meowsPerClick;
+    meowsPerSecond = saved.meowsPerSecond;
+
+    upgradeOneCost = saved.upgradeOneCost;
+    upgradeTwoCost = saved.upgradeTwoCost;
+    upgradeThreeCost = saved.upgradeThreeCost;
+    upgradeFourCost = saved.upgradeFourCost;
+    upgradeFiveCost = saved.upgradeFiveCost;
+    upgradeSixCost = saved.upgradeSixCost;
+
+    updateCurrency();
+}
 
 document.querySelector(".cheat__enter-btn").addEventListener("click", cheatCode)
 document.querySelector(".cheat__enter-btn").addEventListener("click", clearInput)
 catImg.addEventListener("click", handleCatClick);
+
+loadGame();
+setInterval(saveGame, 1000);
+
